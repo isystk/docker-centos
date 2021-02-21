@@ -51,7 +51,7 @@ case ${1} in
     centos)
       case ${2} in
           login)
-              $DOCKER_COMPOSE exec --user ${USER} centos /bin/bash
+              $DOCKER_COMPOSE exec --user ${USER} -w /home/isystk centos /bin/zsh
           ;;
           *)
               usage

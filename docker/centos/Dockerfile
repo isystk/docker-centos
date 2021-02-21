@@ -19,11 +19,15 @@ WORKDIR /usr/local/src/
 
 # よく使うもの
 RUN yum groupinstall -y -q "Development Tools" && yum clean all
-RUN yum install -y gmp-devel mpfr-devel ncurses-devel which wget zlib-devel sudo
+RUN yum install -y gmp-devel mpfr-devel ncurses-devel which wget zlib-devel sudo zsh vim
+
+# Python
+RUN dnf -y install python38
 
 # MySQL client
-RUN rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
-RUN yum -y install mysql-community-client-plugins.x86_64
+RUN dnf localinstall -y https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm && \
+    dnf -y module disable mysql && \
+    dnf -y install mysql-community-client
 
 # yumでOpenSSHをインストールする
 RUN yum -y install openssh-server

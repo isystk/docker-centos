@@ -11,8 +11,17 @@
 ## Usage
 
 ```
-./dc.sh start
+# ユーザー名を編集
+vi .env
+```
 
+USER=<ユーザー名>
+
+```
+# CentOSを起動
+./dc.sh start
+# CentOSにログイン
+./dc.sh centos login
 ```
 
 ## Install
