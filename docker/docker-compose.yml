@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  centos:
+    image: ${PROJECT_NAME}/centos
+    container_name: ${PROJECT_NAME}-centos
+    build:
+      context: "./centos"
+      dockerfile: "Dockerfile"
+      args:
+        USER: "isystk"
+    tty: true
+    stdin_open: true
+    privileged: true
+    command: /sbin/init
