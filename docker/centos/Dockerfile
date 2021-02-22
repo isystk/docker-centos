@@ -19,7 +19,7 @@ WORKDIR /usr/local/src/
 
 # よく使うもの
 RUN yum groupinstall -y -q "Development Tools" && yum clean all
-RUN yum install -y gmp-devel mpfr-devel ncurses-devel which wget zlib-devel sudo zsh vim
+RUN yum install -y gmp-devel mpfr-devel ncurses-devel which wget zlib-devel sudo net-tools hostname zsh vim
 
 # Python
 RUN dnf -y install python38
