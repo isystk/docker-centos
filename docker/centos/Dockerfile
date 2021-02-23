@@ -24,6 +24,15 @@ RUN yum install -y gmp-devel mpfr-devel ncurses-devel which wget zlib-devel sudo
 # Python
 RUN dnf -y install python38
 
+# golang
+RUN dnf -y install golang
+
+# ccat
+RUN git clone https://github.com/jhawthorn/fzy.git
+WORKDIR /usr/local/src/fzy
+RUN make && sudo make install
+RUN go get -u github.com/jingweno/ccat
+
 # MySQL client
 RUN dnf localinstall -y https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm && \
     dnf -y module disable mysql && \
@@ -50,6 +59,10 @@ RUN echo $USER':' | chpasswd
 RUN usermod -aG wheel $USER
 RUN echo 'Defaults visiblepw'             >> /etc/sudoers
 RUN echo $USER' ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# zshとvimの設定
+ADD ./.vimrc /home/isystk
+ADD ./.zshrc /home/isystk
 
 EXPOSE 22
 

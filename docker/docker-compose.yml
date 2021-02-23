@@ -5,8 +5,8 @@ services:
     image: ${PROJECT_NAME}/centos
     container_name: ${PROJECT_NAME}-centos
     build:
-      context: "./centos"
-      dockerfile: "Dockerfile"
+      context: "."
+      dockerfile: "./centos/Dockerfile"
       args:
         USER: "isystk"
     tty: true
