@@ -60,10 +60,6 @@ RUN usermod -aG wheel $USER
 RUN echo 'Defaults visiblepw'             >> /etc/sudoers
 RUN echo $USER' ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-# zshとvimの設定
-ADD ./.vimrc /home/isystk
-ADD ./.zshrc /home/isystk
-
 EXPOSE 22
 
 # sshdを起動

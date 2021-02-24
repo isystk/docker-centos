@@ -4,3 +4,10 @@
 !.gitkeep
 
 .vscode
+.cache
+.vim
+.viminfo
+.zcompdump*
+.zinit
+.zsh_history
+

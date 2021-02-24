@@ -99,6 +99,22 @@ noremap ,df :Gdiff<CR>
 noremap ,bl :Gblame<CR>
 
 
+""" ここから、入力補完にdeopleteを利用する場合
+""" Macの場合
+""" $ brew install python3
+""" $ pip3 install --upgrade neovim
+""if has('nvim')
+""  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+""else
+""  Plug 'Shougo/deoplete.nvim'
+""  Plug 'roxma/nvim-yarp'
+""  Plug 'roxma/vim-hug-neovim-rpc'
+""endif
+""let g:deoplete#enable_at_startup = 1
+""set completeopt+=noinsert
+""" ここまで、入力補完にdeopleteを利用する場合
+
+
 " タグを自動で閉じる
 Plug 'alvan/vim-closetag'
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'

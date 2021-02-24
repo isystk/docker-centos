@@ -2,13 +2,14 @@ version: "3"
 
 services:
   centos:
-    image: ${PROJECT_NAME}/centos
-    container_name: ${PROJECT_NAME}-centos
+    image: isystk/centos8
     build:
-      context: "."
-      dockerfile: "./centos/Dockerfile"
+      context: ".."
+      dockerfile: "./docker/centos/Dockerfile"
       args:
         USER: "isystk"
+    volumes:
+      - ..:/home/isystk
     tty: true
     stdin_open: true
     privileged: true
